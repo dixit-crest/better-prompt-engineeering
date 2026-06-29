@@ -5,8 +5,8 @@ import {
   saveProject, 
   getMeta, 
   setMeta, 
-  IProject 
 } from '../services/projectDB';
+import type { IProject } from '../services/projectDB';
 import type { FullPrompt } from '../types';
 
 export const useProjects = (currentPrompt: FullPrompt, onLoadPrompt: (prompt: FullPrompt) => void) => {

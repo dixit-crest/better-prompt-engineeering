@@ -1,0 +1,10 @@
+{
+  "boardId": "6a4261501043aa1066ab500c",
+  "boardUrl": "https://trello.com/b/8fdShu9o/dev-10x",
+  "boardName": "dev-10x",
+  "lists": {
+    "todo": "6a4261511043aa1066ab50d6",
+    "doing": "6a4261511043aa1066ab50d7",
+    "done": "6a4261511043aa1066ab50d8"
+  }
+}
