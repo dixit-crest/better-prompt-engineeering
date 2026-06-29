@@ -15,7 +15,7 @@ export const useOllamaAutoFill = (baseUrl?: string) => {
       const connected = await ollamaService.checkConnection();
       setIsConnected(connected);
       return connected;
-    } catch (err) {
+    } catch {
       setIsConnected(false);
       return false;
     }

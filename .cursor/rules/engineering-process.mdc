@@ -1,0 +1,32 @@
+---
+description: Engineering process standards — read AGENTS.md and docs/ before any code change
+alwaysApply: true
+---
+
+# Engineering Process
+
+Before making any code changes, read [AGENTS.md](../../AGENTS.md).
+
+## Never Guess
+
+| Topic | Document |
+| ----- | -------- |
+| Branch names | [docs/BRANCHING.md](../../docs/BRANCHING.md) |
+| Commit messages | [docs/COMMITS.md](../../docs/COMMITS.md) |
+| Definition of Done | [docs/DEFINITION_OF_DONE.md](../../docs/DEFINITION_OF_DONE.md) |
+| Testing requirements | [docs/TESTING.md](../../docs/TESTING.md) |
+| Coding standards | [docs/CODING_STANDARDS.md](../../docs/CODING_STANDARDS.md) |
+| Folder structure | [docs/FOLDER_STRUCTURE.md](../../docs/FOLDER_STRUCTURE.md) |
+| Code review | [docs/REVIEW_CHECKLIST.md](../../docs/REVIEW_CHECKLIST.md) |
+
+## Pre-PR Gate
+
+```bash
+./scripts/verify-local.sh
+```
+
+## Application Constraints
+
+- Local-first Ollama only — no cloud LLM API calls
+- Optional prompt sections must remain toggleable
+- Preserve user wording in prompt assembly
