@@ -84,4 +84,22 @@ describe("applyAccentTheme", () => {
       getComputedStyle(document.documentElement).getPropertyValue("--primary").trim(),
     ).toBe(getAccentTheme("emerald").vars.dark.primary)
   })
+
+  it("updates ring token when accent changes so ring shadows follow the theme", () => {
+    applyAccentTheme("rose", "light")
+    const roseRing = getAccentTheme("rose").vars.light.ring
+
+    expect(
+      getComputedStyle(document.documentElement).getPropertyValue("--ring").trim(),
+    ).toBe(roseRing)
+
+    applyAccentTheme("emerald", "light")
+
+    expect(
+      getComputedStyle(document.documentElement).getPropertyValue("--ring").trim(),
+    ).toBe(getAccentTheme("emerald").vars.light.ring)
+    expect(
+      getComputedStyle(document.documentElement).getPropertyValue("--ring").trim(),
+    ).not.toBe(roseRing)
+  })
 })
