@@ -7,7 +7,10 @@ globalThis.ResizeObserver = class ResizeObserver {
   disconnect() {}
 };
 
-// jsdom does not implement matchMedia (used by theme provider)
+// jsdom does not implement Element.getAnimations (used by ScrollArea)
+if (!HTMLElement.prototype.getAnimations) {
+  HTMLElement.prototype.getAnimations = () => [];
+}
 Object.defineProperty(window, "matchMedia", {
   writable: true,
   value: (query: string) => ({
