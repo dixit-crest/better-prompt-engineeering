@@ -14,21 +14,21 @@ Refs: <JIRA-KEY>
 
 - **Summary:** imperative mood, lowercase, no period at end, max ~72 characters.
 - **Body:** optional; use for non-obvious context or breaking changes.
-- **Footer:** `Refs: PE-42` is required on every commit.
+- **Footer:** `Refs: D20-42` is required on every commit.
 
 ## Types
 
-| Type | When to use |
-| ---- | ----------- |
-| `feat` | New user-facing feature |
-| `fix` | Bug fix |
-| `docs` | Documentation only |
-| `style` | Formatting, no logic change |
+| Type       | When to use                              |
+| ---------- | ---------------------------------------- |
+| `feat`     | New user-facing feature                  |
+| `fix`      | Bug fix                                  |
+| `docs`     | Documentation only                       |
+| `style`    | Formatting, no logic change              |
 | `refactor` | Code change that is neither feat nor fix |
-| `test` | Adding or updating tests |
-| `chore` | Maintenance (deps, tooling) |
-| `ci` | CI/CD configuration |
-| `build` | Build system or bundler changes |
+| `test`     | Adding or updating tests                 |
+| `chore`    | Maintenance (deps, tooling)              |
+| `ci`       | CI/CD configuration                      |
+| `build`    | Build system or bundler changes          |
 
 ## Scopes
 
@@ -43,37 +43,37 @@ Omit scope only when the change spans multiple areas equally.
 ```
 feat(ollama): add retry logic for auto-fill requests
 
-Refs: PE-42
+Refs: D20-42
 ```
 
 ```
 fix(ui): prevent double-submit on copy button
 
-Refs: PE-57
+Refs: D20-57
 ```
 
 ```
 docs(process): add branching and commit standards
 
-Refs: PE-61
+Refs: D20-61
 ```
 
 ```
 test(utils): add prompt assembly unit tests
 
-Refs: PE-63
+Refs: D20-63
 ```
 
 ```
 chore(deps): bump vite to 8.0.12
 
-Refs: PE-60
+Refs: D20-60
 ```
 
 ```
 ci: run lint and test before Firebase deploy
 
-Refs: PE-64
+Refs: D20-64
 ```
 
 ## Rules

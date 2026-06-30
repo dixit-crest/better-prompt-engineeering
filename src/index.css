@@ -75,16 +75,39 @@
 }
 
 @layer base {
-  * {
+  *,
+  ::before,
+  ::after {
     border-color: var(--border);
     outline-color: var(--ring);
+    /* Tailwind preflight defaults --tw-ring-color to blue; follow accent --ring instead. */
+    --tw-ring-color: var(--ring);
   }
   body {
     background-color: var(--background);
     color: var(--foreground);
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-}  
+}
+
+/* Opacity modifiers on var(--token) oklch colors are not emitted by Tailwind v3. */
+@layer utilities {
+  .ring-ring\/15 {
+    --tw-ring-color: color-mix(in oklch, var(--ring) 15%, transparent);
+  }
+
+  .ring-foreground\/5 {
+    --tw-ring-color: color-mix(in oklch, var(--foreground) 5%, transparent);
+  }
+}
+
+.focus-within\:border-primary\/50:focus-within {
+  border-color: color-mix(in oklch, var(--primary) 50%, transparent);
+}
+
+.focus-visible\:ring-ring\/30:focus-visible {
+  --tw-ring-color: color-mix(in oklch, var(--ring) 30%, transparent);
+}
 /* Custom Scrollbar */  
 ::-webkit-scrollbar { width: 6px; height: 6px; }  
 ::-webkit-scrollbar-track { background: transparent; }  
