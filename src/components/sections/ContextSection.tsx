@@ -1,29 +1,29 @@
-import { useCallback, useState } from 'react';
-import type { Context } from '../../types';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Textarea } from '@/components/ui/textarea';
-import { TypewriterHint } from '../common/TypewriterHint';
-import { HINT_DATA } from '../../utils/hintData';
+import { useCallback, useState } from 'react'
+import type { Context } from '../../types'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Textarea } from '@/components/ui/textarea'
+import { TypewriterHint } from '../common/TypewriterHint'
+import { HINT_DATA } from '../../utils/hintData'
 
 interface ContextProps {
-  context: Context;
-  onChange: (value: string) => void;
+  context: Context
+  onChange: (value: string) => void
 }
 
 export const ContextSection = ({ context, onChange }: ContextProps) => {
-  const [isFocused, setIsFocused] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-  const hint = HINT_DATA.context;
+  const [isFocused, setIsFocused] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
+  const hint = HINT_DATA.context
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      onChange(e.target.value);
+      onChange(e.target.value)
     },
-    [onChange]
-  );
+    [onChange],
+  )
 
   return (
-    <Card 
+    <Card
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="border-2 transition-all duration-300 focus-within:border-primary/50 shadow-sm hover:shadow-md"
@@ -44,12 +44,12 @@ export const ContextSection = ({ context, onChange }: ContextProps) => {
           rows={5}
           className="font-mono text-sm resize-none focus-visible:ring-ring/30"
         />
-        <TypewriterHint 
+        <TypewriterHint
           description={hint.description}
           examples={hint.examples}
           visible={isFocused || isHovered}
         />
       </CardContent>
     </Card>
-  );
-};
+  )
+}

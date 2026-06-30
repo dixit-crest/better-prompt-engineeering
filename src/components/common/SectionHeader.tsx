@@ -1,13 +1,18 @@
-import type { PromptSection } from '../../types';
+import type { PromptSection } from '../../types'
 
 interface SectionHeaderProps {
-  section: PromptSection;
-  isExpanded: boolean;
-  onToggle: () => void;
-  hasContent: boolean;
+  section: PromptSection
+  isExpanded: boolean
+  onToggle: () => void
+  hasContent: boolean
 }
 
-export const SectionHeader = ({ section, isExpanded, onToggle, hasContent }: SectionHeaderProps) => {
+export const SectionHeader = ({
+  section,
+  isExpanded,
+  onToggle,
+  hasContent,
+}: SectionHeaderProps) => {
   return (
     <div className="prompt-section-header" onClick={onToggle}>
       <div className="section-title">
@@ -20,5 +25,5 @@ export const SectionHeader = ({ section, isExpanded, onToggle, hasContent }: Sec
         {!section.isOptional && <span className="required-badge">required</span>}
       </div>
     </div>
-  );
-};
+  )
+}

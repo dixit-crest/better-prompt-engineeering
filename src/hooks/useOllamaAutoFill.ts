@@ -1,53 +1,52 @@
-import { useState, useCallback } from 'react';
-import type { OllamaAutoFillResponse } from '../types';
-import { ollamaService } from '../services/ollamaService';
+import { useState, useCallback } from 'react'
+import type { OllamaAutoFillResponse } from '../types'
+import { ollamaService } from '../services/ollamaService'
 
 export const useOllamaAutoFill = (baseUrl?: string) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [isConnected, setIsConnected] = useState<boolean | null>(null);
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [isConnected, setIsConnected] = useState<boolean | null>(null)
 
   const checkConnection = useCallback(async () => {
     if (baseUrl) {
-      ollamaService.updateConfig({ baseUrl });
+      ollamaService.updateConfig({ baseUrl })
     }
     try {
-      const connected = await ollamaService.checkConnection();
-      setIsConnected(connected);
-      return connected;
+      const connected = await ollamaService.checkConnection()
+      setIsConnected(connected)
+      return connected
     } catch {
-      setIsConnected(false);
-      return false;
+      setIsConnected(false)
+      return false
     }
-  }, [baseUrl]);
+  }, [baseUrl])
 
   const autoFill = useCallback(
     async (prompt: string): Promise<OllamaAutoFillResponse | null> => {
       if (baseUrl) {
-        ollamaService.updateConfig({ baseUrl });
+        ollamaService.updateConfig({ baseUrl })
       }
       if (!prompt.trim()) {
-        setError('Please enter a prompt first');
-        return null;
+        setError('Please enter a prompt first')
+        return null
       }
 
-      setIsLoading(true);
-      setError(null);
+      setIsLoading(true)
+      setError(null)
 
       try {
-        const suggestions = await ollamaService.autoFill(prompt);
-        return suggestions;
+        const suggestions = await ollamaService.autoFill(prompt)
+        return suggestions
       } catch (err) {
-        const errorMessage =
-          err instanceof Error ? err.message : 'Failed to connect to Ollama';
-        setError(errorMessage);
-        return null;
+        const errorMessage = err instanceof Error ? err.message : 'Failed to connect to Ollama'
+        setError(errorMessage)
+        return null
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
     },
-    [baseUrl]
-  );
+    [baseUrl],
+  )
 
   return {
     isLoading,
@@ -56,5 +55,5 @@ export const useOllamaAutoFill = (baseUrl?: string) => {
     checkConnection,
     autoFill,
     clearError: () => setError(null),
-  };
-};
+  }
+}

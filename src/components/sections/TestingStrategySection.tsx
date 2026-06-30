@@ -1,25 +1,25 @@
-import { useCallback, useState } from 'react';
-import type { TestingStrategy } from '../../types';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Textarea } from '@/components/ui/textarea';
-import { TypewriterHint } from '../common/TypewriterHint';
-import { HINT_DATA } from '../../utils/hintData';
+import { useCallback, useState } from 'react'
+import type { TestingStrategy } from '../../types'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Textarea } from '@/components/ui/textarea'
+import { TypewriterHint } from '../common/TypewriterHint'
+import { HINT_DATA } from '../../utils/hintData'
 
 interface TestingStrategyProps {
-  strategy: TestingStrategy;
-  onChange: (value: string) => void;
+  strategy: TestingStrategy
+  onChange: (value: string) => void
 }
 
 export const TestingStrategySection = ({ strategy, onChange }: TestingStrategyProps) => {
-  const [isFocused, setIsFocused] = useState(false);
-  const hint = HINT_DATA.testingStrategy;
+  const [isFocused, setIsFocused] = useState(false)
+  const hint = HINT_DATA.testingStrategy
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      onChange(e.target.value);
+      onChange(e.target.value)
     },
-    [onChange]
-  );
+    [onChange],
+  )
 
   return (
     <Card className="border-2 transition-all duration-300 focus-within:border-primary/50 shadow-sm hover:shadow-md">
@@ -39,12 +39,12 @@ export const TestingStrategySection = ({ strategy, onChange }: TestingStrategyPr
           rows={5}
           className="font-mono text-sm resize-none focus-visible:ring-ring/30"
         />
-        <TypewriterHint 
+        <TypewriterHint
           description={hint.description}
           examples={hint.examples}
           visible={isFocused || !!strategy.value}
         />
       </CardContent>
     </Card>
-  );
-};
+  )
+}

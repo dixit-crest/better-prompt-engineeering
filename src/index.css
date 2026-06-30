@@ -1,5 +1,5 @@
-@import "@fontsource-variable/noto-sans";
-@import "@fontsource-variable/playfair-display";
+@import '@fontsource-variable/noto-sans';
+@import '@fontsource-variable/playfair-display';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -86,7 +86,9 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
   }
 }
 
@@ -108,14 +110,37 @@
 .focus-visible\:ring-ring\/30:focus-visible {
   --tw-ring-color: color-mix(in oklch, var(--ring) 30%, transparent);
 }
-/* Custom Scrollbar */  
-::-webkit-scrollbar { width: 6px; height: 6px; }  
-::-webkit-scrollbar-track { background: transparent; }  
-::-webkit-scrollbar-thumb { background: rgba(128, 128, 128, 0.3); border-radius: 10px; }  
-::-webkit-scrollbar-thumb:hover { background: rgba(128, 128, 128, 0.5); } 
-  
-/* Container Queries for Resizable Panels */  
-.editor-container { container-type: inline-size; container-name: editor; }  
-@container editor (min-width: 800px) { .responsive-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }  
-@container editor (min-width: 1200px) { .responsive-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }  
-.span-full { grid-column: 1 / -1; } 
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.3);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 128, 128, 0.5);
+}
+
+/* Container Queries for Resizable Panels */
+.editor-container {
+  container-type: inline-size;
+  container-name: editor;
+}
+@container editor (min-width: 800px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@container editor (min-width: 1200px) {
+  .responsive-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.span-full {
+  grid-column: 1 / -1;
+}

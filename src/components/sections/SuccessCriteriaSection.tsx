@@ -1,29 +1,29 @@
-import { useCallback } from 'react';
-import type { SuccessCriteria } from '../../types';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Textarea } from '@/components/ui/textarea';
-import { TypewriterHint } from '../common/TypewriterHint';
-import { HINT_DATA } from '../../utils/hintData';
-import { useSectionVisibility } from '../../hooks/useSectionVisibility';
+import { useCallback } from 'react'
+import type { SuccessCriteria } from '../../types'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Textarea } from '@/components/ui/textarea'
+import { TypewriterHint } from '../common/TypewriterHint'
+import { HINT_DATA } from '../../utils/hintData'
+import { useSectionVisibility } from '../../hooks/useSectionVisibility'
 
 interface SuccessCriteriaProps {
-  criteria: SuccessCriteria;
-  onChange: (value: string) => void;
+  criteria: SuccessCriteria
+  onChange: (value: string) => void
 }
 
 export const SuccessCriteriaSection = ({ criteria, onChange }: SuccessCriteriaProps) => {
-  const { isVisible, bindCard, bindField } = useSectionVisibility();
-  const hint = HINT_DATA.successCriteria;
+  const { isVisible, bindCard, bindField } = useSectionVisibility()
+  const hint = HINT_DATA.successCriteria
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      onChange(e.target.value);
+      onChange(e.target.value)
     },
-    [onChange]
-  );
+    [onChange],
+  )
 
   return (
-    <Card 
+    <Card
       {...bindCard}
       className="border-2 transition-all duration-300 focus-within:border-primary/50 shadow-sm hover:shadow-md"
     >
@@ -42,12 +42,12 @@ export const SuccessCriteriaSection = ({ criteria, onChange }: SuccessCriteriaPr
           rows={5}
           className="font-mono text-sm resize-none focus-visible:ring-ring/30"
         />
-        <TypewriterHint 
+        <TypewriterHint
           description={hint.description}
           examples={hint.examples}
           visible={isVisible}
         />
       </CardContent>
     </Card>
-  );
-};
+  )
+}

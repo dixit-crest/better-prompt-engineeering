@@ -11,15 +11,16 @@ Genkit v1.x introduced significant API changes. This section covers critical syn
 ### Package Imports
 
 - **Correct (v1.x)**: Import core functionality (zod, genkit) from the main `genkit` package and plugins from their specific packages.
+
   ```ts
-  import { z, genkit } from 'genkit';
-  import { googleAI } from '@genkit-ai/google-genai';
+  import { z, genkit } from 'genkit'
+  import { googleAI } from '@genkit-ai/google-genai'
   ```
 
 - **Incorrect (Pre-1.0)**: Importing from `@genkit-ai/ai`, `@genkit-ai/core`, or `@genkit-ai/flow`. These packages are internal/deprecated for direct use.
   ```ts
-  import { genkit } from "@genkit-ai/core"; // INCORRECT
-  import { defineFlow } from "@genkit-ai/flow"; // INCORRECT
+  import { genkit } from '@genkit-ai/core' // INCORRECT
+  import { defineFlow } from '@genkit-ai/flow' // INCORRECT
   ```
 
 ### Model References
@@ -55,13 +56,13 @@ Genkit v1.x introduced significant API changes. This section covers critical syn
 
 - **Correct (v1.x)**: Access properties directly.
   ```ts
-  response.text; // CORRECT
-  response.output; // CORRECT
+  response.text // CORRECT
+  response.output // CORRECT
   ```
 - **Incorrect (Pre-1.0)**: Calling as methods.
   ```ts
-  response.text(); // INCORRECT
-  response.output(); // INCORRECT
+  response.text() // INCORRECT
+  response.output() // INCORRECT
   ```
 
 ### Streaming Generation
@@ -97,7 +98,8 @@ Genkit v1.x introduced significant API changes. This section covers critical syn
   ```
 - **Incorrect (Pre-1.0)**: Importing `defineFlow` globally.
   ```ts
-  import { defineFlow } from "@genkit-ai/flow"; // INCORRECT
+  import { defineFlow } from '@genkit-ai/flow' // INCORRECT
+  ```
 
 You should never import `@genkit-ai/flow`, `@genkit-ai/ai` or `@genkit-ai/core` packages directly.
 
@@ -119,7 +121,7 @@ You should never import `@genkit-ai/flow`, `@genkit-ai/ai` or `@genkit-ai/core` 
 - **Missing responseModalities**: When using image generation models (like `gemini-2.5-flash-image`), you **MUST** specify the response modalities in the config.
   ```ts
   config: {
-    responseModalities: ["TEXT", "IMAGE"]
+    responseModalities: ['TEXT', 'IMAGE']
   }
   ```
   Failure to do so will result in errors or incorrect output format.

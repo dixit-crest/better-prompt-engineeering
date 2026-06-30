@@ -1,16 +1,16 @@
-import { Palette } from "lucide-react"
+import { Palette } from 'lucide-react'
 
-import { useAccentTheme } from "@/hooks/useAccentTheme"
-import { buttonVariants } from "@/components/ui/button"
+import { useAccentTheme } from '@/hooks/useAccentTheme'
+import { buttonVariants } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuLabel,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { ACCENT_THEMES, type AccentColor } from "@/lib/accent-themes"
-import { cn } from "@/lib/utils"
+} from '@/components/ui/dropdown-menu'
+import { ACCENT_THEMES, type AccentColor } from '@/lib/accent-themes'
+import { cn } from '@/lib/utils'
 
 export function AccentColorPicker() {
   const { accent, setAccent } = useAccentTheme()
@@ -18,7 +18,7 @@ export function AccentColorPicker() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        className={cn(buttonVariants({ variant: "outline", size: "icon" }))}
+        className={cn(buttonVariants({ variant: 'outline', size: 'icon' }))}
         aria-label="Choose accent color"
       >
         <Palette />
@@ -56,13 +56,7 @@ type AccentSwatchProps = {
   onSelect: (accent: AccentColor) => void
 }
 
-function AccentSwatch({
-  themeId,
-  label,
-  preview,
-  selected,
-  onSelect,
-}: AccentSwatchProps) {
+function AccentSwatch({ themeId, label, preview, selected, onSelect }: AccentSwatchProps) {
   return (
     <button
       type="button"
@@ -72,8 +66,8 @@ function AccentSwatch({
       title={label}
       onClick={() => onSelect(themeId)}
       className={cn(
-        "size-8 rounded-full border transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-        selected && "ring-2 ring-ring ring-offset-2 ring-offset-background",
+        'size-8 rounded-full border transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+        selected && 'ring-2 ring-ring ring-offset-2 ring-offset-background',
       )}
       style={{ backgroundColor: preview }}
     />

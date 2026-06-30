@@ -1,19 +1,19 @@
-import { useCallback } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { SparklesIcon, RefreshCwIcon, XIcon, AlertCircleIcon } from 'lucide-react';
+import { useCallback } from 'react'
+import { Card, CardContent } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { Alert, AlertDescription } from '@/components/ui/alert'
+import { SparklesIcon, RefreshCwIcon, XIcon, AlertCircleIcon } from 'lucide-react'
 
 interface OllamaAutoFillSectionProps {
-  prompt: string;
-  onTrigger: () => void;
-  isConnected: boolean | null;
-  checkConnection: () => Promise<boolean>;
-  isLoading: boolean;
-  error: string | null;
-  clearError: () => void;
-  baseUrl: string;
+  prompt: string
+  onTrigger: () => void
+  isConnected: boolean | null
+  checkConnection: () => Promise<boolean>
+  isLoading: boolean
+  error: string | null
+  clearError: () => void
+  baseUrl: string
 }
 
 export const OllamaAutoFillSection = ({
@@ -28,24 +28,24 @@ export const OllamaAutoFillSection = ({
 }: OllamaAutoFillSectionProps) => {
   const handleAutoFill = useCallback(async () => {
     if (!prompt.trim()) {
-      return;
+      return
     }
-    const connected = await checkConnection();
+    const connected = await checkConnection()
     if (!connected) {
-      alert(`Could not connect to Ollama. Make sure Ollama is running at ${baseUrl}.`);
-      return;
+      alert(`Could not connect to Ollama. Make sure Ollama is running at ${baseUrl}.`)
+      return
     }
-    onTrigger();
-  }, [prompt, checkConnection, onTrigger, baseUrl]);
+    onTrigger()
+  }, [prompt, checkConnection, onTrigger, baseUrl])
 
   const handleCheckConnection = useCallback(async () => {
-    const connected = await checkConnection();
+    const connected = await checkConnection()
     if (connected) {
-      alert('Connected to Ollama successfully!');
+      alert('Connected to Ollama successfully!')
     } else {
-      alert(`Could not connect to Ollama. Make sure Ollama is running at ${baseUrl}.`);
+      alert(`Could not connect to Ollama. Make sure Ollama is running at ${baseUrl}.`)
     }
-  }, [checkConnection, baseUrl]);
+  }, [checkConnection, baseUrl])
 
   return (
     <Card className="border-primary/20 bg-primary/5">
@@ -58,18 +58,16 @@ export const OllamaAutoFillSection = ({
                 Connected
               </Badge>
             ) : (
-              <Badge variant="destructive" className="bg-destructive/10 text-destructive border-destructive/20">
+              <Badge
+                variant="destructive"
+                className="bg-destructive/10 text-destructive border-destructive/20"
+              >
                 Disconnected
               </Badge>
             )}
           </div>
           <div className="flex gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleCheckConnection}
-              className="h-8"
-            >
+            <Button variant="outline" size="sm" onClick={handleCheckConnection} className="h-8">
               <RefreshCwIcon className="mr-2 size-3" />
               Test
             </Button>
@@ -88,16 +86,16 @@ export const OllamaAutoFillSection = ({
             </Button>
           </div>
         </div>
-        
+
         {error && (
           <Alert variant="destructive">
             <AlertCircleIcon className="size-4" />
             <AlertDescription className="flex items-center justify-between w-full">
               {error}
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                onClick={clearError} 
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={clearError}
                 className="size-6 ml-2 hover:bg-transparent"
               >
                 <XIcon className="size-4" />
@@ -107,5 +105,5 @@ export const OllamaAutoFillSection = ({
         )}
       </CardContent>
     </Card>
-  );
-};
+  )
+}

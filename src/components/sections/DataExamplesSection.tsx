@@ -1,40 +1,45 @@
-import { useCallback, useState } from 'react';
-import type { DataExamples } from '../../types';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
-import { PlusIcon, XIcon } from 'lucide-react';
-import { TypewriterHint } from '../common/TypewriterHint';
-import { HINT_DATA } from '../../utils/hintData';
+import { useCallback, useState } from 'react'
+import type { DataExamples } from '../../types'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Textarea } from '@/components/ui/textarea'
+import { Button } from '@/components/ui/button'
+import { PlusIcon, XIcon } from 'lucide-react'
+import { TypewriterHint } from '../common/TypewriterHint'
+import { HINT_DATA } from '../../utils/hintData'
 
 interface DataExamplesProps {
-  dataExamples: DataExamples;
-  onAdd: (input: string, output: string) => void;
-  onRemove: (id: string) => void;
-  onUpdate: (id: string, input: string, output: string) => void;
+  dataExamples: DataExamples
+  onAdd: (input: string, output: string) => void
+  onRemove: (id: string) => void
+  onUpdate: (id: string, input: string, output: string) => void
 }
 
-export const DataExamplesSection = ({ dataExamples, onAdd, onRemove, onUpdate }: DataExamplesProps) => {
-  const [isFocused, setIsFocused] = useState(false);
-  const hint = HINT_DATA.dataExamples;
+export const DataExamplesSection = ({
+  dataExamples,
+  onAdd,
+  onRemove,
+  onUpdate,
+}: DataExamplesProps) => {
+  const [isFocused, setIsFocused] = useState(false)
+  const hint = HINT_DATA.dataExamples
 
   const handleAdd = useCallback(() => {
-    onAdd('', '');
-  }, [onAdd]);
+    onAdd('', '')
+  }, [onAdd])
 
   const handleRemove = useCallback(
     (id: string) => {
-      onRemove(id);
+      onRemove(id)
     },
-    [onRemove]
-  );
+    [onRemove],
+  )
 
   const handleUpdate = useCallback(
     (id: string, input: string, output: string) => {
-      onUpdate(id, input, output);
+      onUpdate(id, input, output)
     },
-    [onUpdate]
-  );
+    [onUpdate],
+  )
 
   return (
     <Card className="border-2 transition-all duration-300 focus-within:border-primary/50 shadow-sm hover:shadow-md">
@@ -42,7 +47,12 @@ export const DataExamplesSection = ({ dataExamples, onAdd, onRemove, onUpdate }:
         <CardTitle className="text-sm font-bold uppercase tracking-widest text-muted-foreground/80">
           Data Examples / I/O
         </CardTitle>
-        <Button variant="outline" size="sm" onClick={handleAdd} className="h-8 gap-1 border-primary/50 hover:bg-primary/10">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={handleAdd}
+          className="h-8 gap-1 border-primary/50 hover:bg-primary/10"
+        >
           <PlusIcon className="size-3" />
           Add Example
         </Button>
@@ -50,9 +60,14 @@ export const DataExamplesSection = ({ dataExamples, onAdd, onRemove, onUpdate }:
       <CardContent className="space-y-6">
         <div className="space-y-4">
           {dataExamples.items.map((example) => (
-            <div key={example.id} className="relative grid grid-cols-1 md:grid-cols-2 gap-4 p-4 border rounded-lg bg-muted/30 animate-in zoom-in-95 duration-300">
+            <div
+              key={example.id}
+              className="relative grid grid-cols-1 md:grid-cols-2 gap-4 p-4 border rounded-lg bg-muted/30 animate-in zoom-in-95 duration-300"
+            >
               <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground/70">Input</label>
+                <label className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground/70">
+                  Input
+                </label>
                 <Textarea
                   value={example.input}
                   onChange={(e) => handleUpdate(example.id, e.target.value, example.output)}
@@ -63,7 +78,9 @@ export const DataExamplesSection = ({ dataExamples, onAdd, onRemove, onUpdate }:
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground/70">Expected Output</label>
+                <label className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground/70">
+                  Expected Output
+                </label>
                 <Textarea
                   value={example.output}
                   onChange={(e) => handleUpdate(example.id, example.input, e.target.value)}
@@ -90,12 +107,12 @@ export const DataExamplesSection = ({ dataExamples, onAdd, onRemove, onUpdate }:
             </p>
           )}
         </div>
-        <TypewriterHint 
+        <TypewriterHint
           description={hint.description}
           examples={hint.examples}
           visible={isFocused || dataExamples.items.length > 0}
         />
       </CardContent>
     </Card>
-  );
-};
+  )
+}

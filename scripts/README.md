@@ -2,8 +2,8 @@
 
 Local automation scripts for the development workflow.
 
-| Script | Description |
-| ------ | ----------- |
+| Script                                 | Description                              |
+| -------------------------------------- | ---------------------------------------- |
 | [`verify-local.sh`](./verify-local.sh) | Pre-PR quality gate: lint → test → build |
 
 ## Usage

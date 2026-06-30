@@ -26,15 +26,15 @@ Jira Ticket → Branch → Implement → Lint/Test/Build → PR → Review → M
 
 ## Standards (Single Source of Truth)
 
-| Topic | Document |
-| ----- | -------- |
-| Branch naming | [docs/BRANCHING.md](./docs/BRANCHING.md) |
-| Commit messages | [docs/COMMITS.md](./docs/COMMITS.md) |
-| Coding standards | [docs/CODING_STANDARDS.md](./docs/CODING_STANDARDS.md) |
-| Folder structure | [docs/FOLDER_STRUCTURE.md](./docs/FOLDER_STRUCTURE.md) |
-| Testing | [docs/TESTING.md](./docs/TESTING.md) |
+| Topic              | Document                                                   |
+| ------------------ | ---------------------------------------------------------- |
+| Branch naming      | [docs/BRANCHING.md](./docs/BRANCHING.md)                   |
+| Commit messages    | [docs/COMMITS.md](./docs/COMMITS.md)                       |
+| Coding standards   | [docs/CODING_STANDARDS.md](./docs/CODING_STANDARDS.md)     |
+| Folder structure   | [docs/FOLDER_STRUCTURE.md](./docs/FOLDER_STRUCTURE.md)     |
+| Testing            | [docs/TESTING.md](./docs/TESTING.md)                       |
 | Definition of Done | [docs/DEFINITION_OF_DONE.md](./docs/DEFINITION_OF_DONE.md) |
-| Code review | [docs/REVIEW_CHECKLIST.md](./docs/REVIEW_CHECKLIST.md) |
+| Code review        | [docs/REVIEW_CHECKLIST.md](./docs/REVIEW_CHECKLIST.md)     |
 
 ## PR Requirements
 

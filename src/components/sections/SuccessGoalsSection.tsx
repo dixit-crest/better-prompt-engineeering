@@ -1,44 +1,49 @@
-import { useCallback } from 'react';
-import type { SuccessGoals } from '../../types';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { PlusIcon, XIcon } from 'lucide-react';
-import { TypewriterHint } from '../common/TypewriterHint';
-import { HINT_DATA } from '../../utils/hintData';
-import { useSectionVisibility } from '../../hooks/useSectionVisibility';
+import { useCallback } from 'react'
+import type { SuccessGoals } from '../../types'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { PlusIcon, XIcon } from 'lucide-react'
+import { TypewriterHint } from '../common/TypewriterHint'
+import { HINT_DATA } from '../../utils/hintData'
+import { useSectionVisibility } from '../../hooks/useSectionVisibility'
 
 interface SuccessGoalsProps {
-  successGoals: SuccessGoals;
-  onAdd: (value: string) => void;
-  onRemove: (id: string) => void;
-  onUpdate: (id: string, value: string) => void;
+  successGoals: SuccessGoals
+  onAdd: (value: string) => void
+  onRemove: (id: string) => void
+  onUpdate: (id: string, value: string) => void
 }
 
-export const SuccessGoalsSection = ({ successGoals, onAdd, onRemove, onUpdate }: SuccessGoalsProps) => {
-  const { isVisible, bindCard, bindField } = useSectionVisibility();
-  const hint = HINT_DATA.successGoals;
+export const SuccessGoalsSection = ({
+  successGoals,
+  onAdd,
+  onRemove,
+  onUpdate,
+}: SuccessGoalsProps) => {
+  const { isVisible, bindCard, bindField } = useSectionVisibility()
+  const hint = HINT_DATA.successGoals
 
   const handleAdd = useCallback(() => {
-    onAdd('');
-  }, [onAdd]);
+    onAdd('')
+  }, [onAdd])
 
   const handleRemove = useCallback(
     (id: string) => {
-      onRemove(id);
+      onRemove(id)
     },
-    [onRemove]
-  );
+    [onRemove],
+  )
 
   const handleUpdate = useCallback(
     (id: string, value: string) => {
-      onUpdate(id, value);
+      onUpdate(id, value)
     },
-    [onUpdate]
-  );
+    [onUpdate],
+  )
 
   return (
-    <Card 
+    <Card
       {...bindCard}
       className="border-2 transition-all duration-300 focus-within:border-primary/50 shadow-sm hover:shadow-md"
     >
@@ -46,7 +51,12 @@ export const SuccessGoalsSection = ({ successGoals, onAdd, onRemove, onUpdate }:
         <CardTitle className="text-sm font-bold uppercase tracking-widest text-muted-foreground/80">
           Success Goals / Outcomes
         </CardTitle>
-        <Button variant="outline" size="sm" onClick={handleAdd} className="h-8 gap-1 border-primary/50 hover:bg-primary/10">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={handleAdd}
+          className="h-8 gap-1 border-primary/50 hover:bg-primary/10"
+        >
           <PlusIcon className="size-3" />
           Add Goal
         </Button>
@@ -80,12 +90,12 @@ export const SuccessGoalsSection = ({ successGoals, onAdd, onRemove, onUpdate }:
             </p>
           )}
         </div>
-        <TypewriterHint 
+        <TypewriterHint
           description={hint.description}
           examples={hint.examples}
           visible={isVisible}
         />
       </CardContent>
     </Card>
-  );
-};
+  )
+}

@@ -1,25 +1,25 @@
-import { useCallback, useState } from 'react';
-import type { Constraints } from '../../types';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Textarea } from '@/components/ui/textarea';
-import { TypewriterHint } from '../common/TypewriterHint';
-import { HINT_DATA } from '../../utils/hintData';
+import { useCallback, useState } from 'react'
+import type { Constraints } from '../../types'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Textarea } from '@/components/ui/textarea'
+import { TypewriterHint } from '../common/TypewriterHint'
+import { HINT_DATA } from '../../utils/hintData'
 
 interface ConstraintsProps {
-  constraints: Constraints;
-  onChange: (value: string) => void;
+  constraints: Constraints
+  onChange: (value: string) => void
 }
 
 export const ConstraintsSection = ({ constraints, onChange }: ConstraintsProps) => {
-  const [isFocused, setIsFocused] = useState(false);
-  const hint = HINT_DATA.constraints;
+  const [isFocused, setIsFocused] = useState(false)
+  const hint = HINT_DATA.constraints
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      onChange(e.target.value);
+      onChange(e.target.value)
     },
-    [onChange]
-  );
+    [onChange],
+  )
 
   return (
     <Card className="border-2 transition-all duration-300 focus-within:border-primary/50 shadow-sm hover:shadow-md">
@@ -39,12 +39,12 @@ export const ConstraintsSection = ({ constraints, onChange }: ConstraintsProps) 
           rows={5}
           className="font-mono text-sm resize-none focus-visible:ring-ring/30"
         />
-        <TypewriterHint 
+        <TypewriterHint
           description={hint.description}
           examples={hint.examples}
           visible={isFocused || !!constraints.value}
         />
       </CardContent>
     </Card>
-  );
-};
+  )
+}
