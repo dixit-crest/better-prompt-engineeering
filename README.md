@@ -17,15 +17,15 @@ npm run dev        # http://localhost:9000
 
 ## Commands
 
-| Command | Description |
-| ------- | ----------- |
-| `npm run dev` | Start Vite dev server on port 9000 |
-| `npm run build` | Type-check and production build |
-| `npm run lint` | Run ESLint |
-| `npm test` | Run Vitest test suite |
-| `npm run test:watch` | Run tests in watch mode |
-| `npm run test:coverage` | Run tests with coverage report |
-| `npm run preview` | Preview production build locally |
+| Command                 | Description                        |
+| ----------------------- | ---------------------------------- |
+| `npm run dev`           | Start Vite dev server on port 9000 |
+| `npm run build`         | Type-check and production build    |
+| `npm run lint`          | Run ESLint                         |
+| `npm test`              | Run Vitest test suite              |
+| `npm run test:watch`    | Run tests in watch mode            |
+| `npm run test:coverage` | Run tests with coverage report     |
+| `npm run preview`       | Preview production build locally   |
 
 ## Pre-PR Verification
 
@@ -37,12 +37,12 @@ Runs lint, test, and build in sequence.
 
 ## Documentation
 
-| Doc | Description |
-| --- | ----------- |
-| [CONTRIBUTING.md](./CONTRIBUTING.md) | How to contribute |
-| [ARCHITECTURE.md](./ARCHITECTURE.md) | System design |
-| [AGENTS.md](./AGENTS.md) | AI agent guidelines |
-| [docs/](./docs/README.md) | Engineering process standards |
+| Doc                                  | Description                   |
+| ------------------------------------ | ----------------------------- |
+| [CONTRIBUTING.md](./CONTRIBUTING.md) | How to contribute             |
+| [ARCHITECTURE.md](./ARCHITECTURE.md) | System design                 |
+| [AGENTS.md](./AGENTS.md)             | AI agent guidelines           |
+| [docs/](./docs/README.md)            | Engineering process standards |
 
 ## Deployment
 

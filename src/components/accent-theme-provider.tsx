@@ -1,23 +1,13 @@
-import {
-  useCallback,
-  useEffect,
-  useState,
-  type ReactNode,
-} from "react"
+import { useCallback, useEffect, useState, type ReactNode } from 'react'
 
-import {
-  AccentThemeProviderContext,
-} from "@/components/accent-theme-context"
+import { AccentThemeProviderContext } from '@/components/accent-theme-context'
 import {
   ACCENT_STORAGE_KEY,
   DEFAULT_ACCENT_COLOR,
   type AccentColor,
   isAccentColor,
-} from "@/lib/accent-themes"
-import {
-  applyAccentTheme,
-  getResolvedColorScheme,
-} from "@/lib/apply-accent-theme"
+} from '@/lib/accent-themes'
+import { applyAccentTheme, getResolvedColorScheme } from '@/lib/apply-accent-theme'
 
 type AccentThemeProviderProps = {
   children: ReactNode
@@ -35,12 +25,9 @@ export function AccentThemeProvider({
     return isAccentColor(stored) ? stored : defaultAccent
   })
 
-  const applyCurrentAccent = useCallback(
-    (nextAccent: AccentColor) => {
-      applyAccentTheme(nextAccent, getResolvedColorScheme())
-    },
-    [],
-  )
+  const applyCurrentAccent = useCallback((nextAccent: AccentColor) => {
+    applyAccentTheme(nextAccent, getResolvedColorScheme())
+  }, [])
 
   useEffect(() => {
     applyCurrentAccent(accent)
@@ -54,7 +41,7 @@ export function AccentThemeProvider({
 
     observer.observe(root, {
       attributes: true,
-      attributeFilter: ["class"],
+      attributeFilter: ['class'],
     })
 
     return () => observer.disconnect()
@@ -69,9 +56,7 @@ export function AccentThemeProvider({
   )
 
   return (
-    <AccentThemeProviderContext.Provider
-      value={{ accent, setAccent }}
-    >
+    <AccentThemeProviderContext.Provider value={{ accent, setAccent }}>
       {children}
     </AccentThemeProviderContext.Provider>
   )

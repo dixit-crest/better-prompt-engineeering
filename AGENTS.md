@@ -11,26 +11,26 @@
 
 ## Never Guess
 
-| Topic | Read this — do not invent |
-| ----- | ------------------------- |
-| Branch names | [docs/BRANCHING.md](./docs/BRANCHING.md) |
-| Commit messages | [docs/COMMITS.md](./docs/COMMITS.md) |
-| Code style | [docs/CODING_STANDARDS.md](./docs/CODING_STANDARDS.md) |
-| Where files go | [docs/FOLDER_STRUCTURE.md](./docs/FOLDER_STRUCTURE.md) |
-| What to test | [docs/TESTING.md](./docs/TESTING.md) |
+| Topic                 | Read this — do not invent                                  |
+| --------------------- | ---------------------------------------------------------- |
+| Branch names          | [docs/BRANCHING.md](./docs/BRANCHING.md)                   |
+| Commit messages       | [docs/COMMITS.md](./docs/COMMITS.md)                       |
+| Code style            | [docs/CODING_STANDARDS.md](./docs/CODING_STANDARDS.md)     |
+| Where files go        | [docs/FOLDER_STRUCTURE.md](./docs/FOLDER_STRUCTURE.md)     |
+| What to test          | [docs/TESTING.md](./docs/TESTING.md)                       |
 | When work is complete | [docs/DEFINITION_OF_DONE.md](./docs/DEFINITION_OF_DONE.md) |
-| How to review | [docs/REVIEW_CHECKLIST.md](./docs/REVIEW_CHECKLIST.md) |
+| How to review         | [docs/REVIEW_CHECKLIST.md](./docs/REVIEW_CHECKLIST.md)     |
 
 ## Task → Document Mapping
 
-| Task type | Primary docs |
-| --------- | ------------ |
-| New feature | BRANCHING, CODING_STANDARDS, TESTING, DEFINITION_OF_DONE |
-| Bug fix | BRANCHING, CODING_STANDARDS, TESTING |
-| Refactor | CODING_STANDARDS, FOLDER_STRUCTURE, TESTING |
-| Documentation | COMMITS, FOLDER_STRUCTURE |
-| Opening a PR | DEFINITION_OF_DONE, REVIEW_CHECKLIST |
-| Reviewing a PR | REVIEW_CHECKLIST |
+| Task type      | Primary docs                                             |
+| -------------- | -------------------------------------------------------- |
+| New feature    | BRANCHING, CODING_STANDARDS, TESTING, DEFINITION_OF_DONE |
+| Bug fix        | BRANCHING, CODING_STANDARDS, TESTING                     |
+| Refactor       | CODING_STANDARDS, FOLDER_STRUCTURE, TESTING              |
+| Documentation  | COMMITS, FOLDER_STRUCTURE                                |
+| Opening a PR   | DEFINITION_OF_DONE, REVIEW_CHECKLIST                     |
+| Reviewing a PR | REVIEW_CHECKLIST                                         |
 
 ## Development Commands
 

@@ -25,13 +25,13 @@ flowchart LR
 
 ## Layers
 
-| Layer | Path | Responsibility |
-| ----- | ---- | -------------- |
-| Components | `src/components/` | UI rendering — sections, assembly view, shadcn primitives |
-| Hooks | `src/hooks/` | State management, Ollama auto-fill orchestration, project persistence |
-| Services | `src/services/` | Ollama HTTP client, IndexedDB project storage |
-| Types | `src/types/` | TypeScript interfaces and central section config |
-| Utils | `src/utils/` | Pure functions — prompt assembly, hint data |
+| Layer      | Path              | Responsibility                                                        |
+| ---------- | ----------------- | --------------------------------------------------------------------- |
+| Components | `src/components/` | UI rendering — sections, assembly view, shadcn primitives             |
+| Hooks      | `src/hooks/`      | State management, Ollama auto-fill orchestration, project persistence |
+| Services   | `src/services/`   | Ollama HTTP client, IndexedDB project storage                         |
+| Types      | `src/types/`      | TypeScript interfaces and central section config                      |
+| Utils      | `src/utils/`      | Pure functions — prompt assembly, hint data                           |
 
 ## Key Design Patterns
 
@@ -76,10 +76,10 @@ sequenceDiagram
 
 ## CI/CD
 
-| Trigger | Workflow | Result |
-| ------- | -------- | ------ |
-| Pull request | `firebase-hosting-pull-request.yml` | Lint, test, build, Firebase preview |
-| Push to `main` | `firebase-hosting-merge.yml` | Lint, test, build, Firebase live deploy |
+| Trigger        | Workflow                            | Result                                  |
+| -------------- | ----------------------------------- | --------------------------------------- |
+| Pull request   | `firebase-hosting-pull-request.yml` | Lint, test, build, Firebase preview     |
+| Push to `main` | `firebase-hosting-merge.yml`        | Lint, test, build, Firebase live deploy |
 
 Firebase project: `better-prompt-engineering`
 

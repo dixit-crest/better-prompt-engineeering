@@ -1,10 +1,10 @@
-import { describe, it, expect, afterEach } from "vitest"
-import { cleanup, render, screen } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
+import { describe, it, expect, afterEach } from 'vitest'
+import { cleanup, render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
-import { AccentColorPicker } from "@/components/accent-color-picker"
-import { AccentThemeProvider } from "@/components/accent-theme-provider"
-import { ThemeProvider } from "@/components/theme-provider"
+import { AccentColorPicker } from '@/components/accent-color-picker'
+import { AccentThemeProvider } from '@/components/accent-theme-provider'
+import { ThemeProvider } from '@/components/theme-provider'
 
 function renderAccentPicker() {
   return render(
@@ -16,32 +16,30 @@ function renderAccentPicker() {
   )
 }
 
-describe("AccentColorPicker", () => {
+describe('AccentColorPicker', () => {
   afterEach(() => {
     cleanup()
     localStorage.clear()
   })
 
-  it("renders the accent color trigger", () => {
+  it('renders the accent color trigger', () => {
     renderAccentPicker()
 
-    expect(
-      screen.getByRole("button", { name: "Choose accent color" }),
-    ).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Choose accent color' })).toBeInTheDocument()
   })
 
-  it("shows accent swatches and updates the selected accent", async () => {
+  it('shows accent swatches and updates the selected accent', async () => {
     const user = userEvent.setup()
     renderAccentPicker()
 
-    await user.click(screen.getByRole("button", { name: "Choose accent color" }))
+    await user.click(screen.getByRole('button', { name: 'Choose accent color' }))
 
-    const roseSwatch = await screen.findByRole("radio", { name: "Rose" })
-    expect(roseSwatch).toHaveAttribute("aria-checked", "false")
+    const roseSwatch = await screen.findByRole('radio', { name: 'Rose' })
+    expect(roseSwatch).toHaveAttribute('aria-checked', 'false')
 
     await user.click(roseSwatch)
 
-    expect(roseSwatch).toHaveAttribute("aria-checked", "true")
-    expect(localStorage.getItem("test-accent-color")).toBe("rose")
+    expect(roseSwatch).toHaveAttribute('aria-checked', 'true')
+    expect(localStorage.getItem('test-accent-color')).toBe('rose')
   })
 })

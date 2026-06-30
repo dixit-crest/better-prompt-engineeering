@@ -1,29 +1,25 @@
-import {
-  type AccentColor,
-  type AccentCssVars,
-  getAccentTheme,
-} from "@/lib/accent-themes"
+import { type AccentColor, type AccentCssVars, getAccentTheme } from '@/lib/accent-themes'
 
 export const ACCENT_CSS_VARIABLES = [
-  "primary",
-  "primary-foreground",
-  "ring",
-  "chart-1",
-  "chart-2",
-  "chart-3",
-  "chart-4",
-  "chart-5",
-  "sidebar-primary",
-  "sidebar-primary-foreground",
-  "sidebar-ring",
+  'primary',
+  'primary-foreground',
+  'ring',
+  'chart-1',
+  'chart-2',
+  'chart-3',
+  'chart-4',
+  'chart-5',
+  'sidebar-primary',
+  'sidebar-primary-foreground',
+  'sidebar-ring',
 ] as const
 
-export type ResolvedColorScheme = "light" | "dark"
+export type ResolvedColorScheme = 'light' | 'dark'
 
 export function getResolvedColorScheme(
   root: HTMLElement = document.documentElement,
 ): ResolvedColorScheme {
-  return root.classList.contains("dark") ? "dark" : "light"
+  return root.classList.contains('dark') ? 'dark' : 'light'
 }
 
 export function applyAccentCssVars(

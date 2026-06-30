@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
 export function useSectionVisibility() {
-  const [isFocused, setIsFocused] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+  const [isFocused, setIsFocused] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
 
   return {
     isFocused,
@@ -15,6 +15,6 @@ export function useSectionVisibility() {
     bindField: {
       onFocus: () => setIsFocused(true),
       onBlur: () => setIsFocused(false),
-    }
-  };
+    },
+  }
 }
