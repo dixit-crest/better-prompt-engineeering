@@ -26,6 +26,8 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { RotateCcwIcon } from "lucide-react";
+import { AccentColorPicker } from "@/components/accent-color-picker";
+import { AccentThemeProvider } from "@/components/accent-theme-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ModeToggle } from "@/components/mode-toggle";
 
@@ -191,15 +193,17 @@ function App() {
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <AccentThemeProvider>
       <TooltipProvider>
         <div className="flex flex-col h-screen w-full overflow-hidden bg-background">
           <header className="px-6 py-4 flex items-center justify-between border-b">
             <div className="flex items-center gap-4">
-              <h1 className="text-2xl font-bold tracking-tight bg-gradient-to-r from-primary to-violet-500 bg-clip-text text-transparent">
+              <h1 className="text-2xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
                 Prompt Engineer
               </h1>
             </div>
             <div className="flex items-center gap-2">
+              <AccentColorPicker />
               <ModeToggle />
               <Button
                 variant="outline"
@@ -416,6 +420,7 @@ function App() {
           </main>
         </div>
       </TooltipProvider>
+      </AccentThemeProvider>
     </ThemeProvider>
   );
 }

@@ -40,7 +40,7 @@ export const BehaviorSpecificationsSection = ({ specifications, onChange }: Beha
           onChange={handleChange}
           {...bindField}
           rows={5}
-          className="font-mono text-sm resize-none focus-visible:ring-violet-500/30"
+          className="font-mono text-sm resize-none focus-visible:ring-ring/30"
         />
         <TypewriterHint 
           description={hint.description}

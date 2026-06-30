@@ -59,7 +59,7 @@ export const DataExamplesSection = ({ dataExamples, onAdd, onRemove, onUpdate }:
                   onFocus={() => setIsFocused(true)}
                   onBlur={() => setIsFocused(false)}
                   placeholder="e.g., { id: 123 }"
-                  className="font-mono text-xs min-h-[100px] resize-none focus-visible:ring-violet-500/30"
+                  className="font-mono text-xs min-h-[100px] resize-none focus-visible:ring-ring/30"
                 />
               </div>
               <div className="space-y-2">
@@ -70,7 +70,7 @@ export const DataExamplesSection = ({ dataExamples, onAdd, onRemove, onUpdate }:
                   onFocus={() => setIsFocused(true)}
                   onBlur={() => setIsFocused(false)}
                   placeholder="e.g., { name: 'John Doe' }"
-                  className="font-mono text-xs min-h-[100px] resize-none focus-visible:ring-violet-500/30"
+                  className="font-mono text-xs min-h-[100px] resize-none focus-visible:ring-ring/30"
                 />
               </div>
               <Button

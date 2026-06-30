@@ -121,7 +121,7 @@ export const TechnologiesSection = ({
             onChange={(e) => setSearchTerm(e.target.value)}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            className="focus-visible:ring-violet-500/30"
+            className="focus-visible:ring-ring/30"
           />
           <div className="flex flex-wrap gap-1 max-h-32 overflow-y-auto p-2 border rounded-md bg-muted/50 scrollbar-thin scrollbar-thumb-muted-foreground/20">
             {filteredTechnologies.map((tech) => (

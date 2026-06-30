@@ -38,7 +38,7 @@ export const BehaviorSectionsSection = ({ sections, onChange }: BehaviorSections
               onBlur={() => setFocusedField(null)}
               placeholder={HINT_DATA.happyPath.placeholder}
               rows={4}
-              className="text-xs resize-none focus-visible:ring-violet-500/30"
+              className="text-xs resize-none focus-visible:ring-ring/30"
             />
             <TypewriterHint 
               description={HINT_DATA.happyPath.description}
@@ -55,7 +55,7 @@ export const BehaviorSectionsSection = ({ sections, onChange }: BehaviorSections
               onBlur={() => setFocusedField(null)}
               placeholder={HINT_DATA.edgeCases.placeholder}
               rows={4}
-              className="text-xs resize-none focus-visible:ring-violet-500/30"
+              className="text-xs resize-none focus-visible:ring-ring/30"
             />
             <TypewriterHint 
               description={HINT_DATA.edgeCases.description}
@@ -72,7 +72,7 @@ export const BehaviorSectionsSection = ({ sections, onChange }: BehaviorSections
               onBlur={() => setFocusedField(null)}
               placeholder={HINT_DATA.failureStates.placeholder}
               rows={4}
-              className="text-xs resize-none focus-visible:ring-violet-500/30"
+              className="text-xs resize-none focus-visible:ring-ring/30"
             />
             <TypewriterHint 
               description={HINT_DATA.failureStates.description}

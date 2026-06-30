@@ -61,7 +61,7 @@ export const SubtasksSection = ({ subtasks, onAdd, onRemove, onUpdate }: Subtask
                 onChange={(e) => handleUpdate(item.id, e.target.value)}
                 {...bindField}
                 placeholder={hint.placeholder}
-                className="flex-1 focus-visible:ring-violet-500/30"
+                className="flex-1 focus-visible:ring-ring/30"
               />
               <Button
                 variant="ghost"
