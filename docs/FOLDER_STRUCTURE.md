@@ -17,13 +17,13 @@ prompt-engineer/
 └── node_modules/   # Dependencies (gitignored)
 ```
 
-| Path | Belongs | Does not belong |
-| ---- | ------- | --------------- |
-| `docs/` | Process standards, branching, DoD | Application code, API docs |
-| `scripts/` | Shell/Node automation for dev workflow | Business logic |
-| `tests/` | Test setup, smoke tests, integration tests | Production source |
-| `src/` | All application code | Tests (prefer `tests/` or co-located `*.test.tsx`) |
-| `public/` | Favicon, static icons, `index.html` fallback | Compiled bundles |
+| Path       | Belongs                                      | Does not belong                                    |
+| ---------- | -------------------------------------------- | -------------------------------------------------- |
+| `docs/`    | Process standards, branching, DoD            | Application code, API docs                         |
+| `scripts/` | Shell/Node automation for dev workflow       | Business logic                                     |
+| `tests/`   | Test setup, smoke tests, integration tests   | Production source                                  |
+| `src/`     | All application code                         | Tests (prefer `tests/` or co-located `*.test.tsx`) |
+| `public/`  | Favicon, static icons, `index.html` fallback | Compiled bundles                                   |
 
 ## `src/` Layout
 
@@ -50,27 +50,27 @@ src/
 
 ## Where to Put New Code
 
-| Adding... | Location |
-| --------- | -------- |
-| New prompt section UI | `src/components/sections/<Name>Section.tsx` + register in `src/types/config.ts` |
-| New hook | `src/hooks/use<Name>.ts` |
-| Ollama or storage logic | `src/services/` |
-| Pure formatting/assembly logic | `src/utils/` |
-| New type or interface | `src/types/index.ts` |
-| New shadcn component | `src/components/ui/` via CLI |
-| Smoke or integration test | `tests/` |
-| Unit test for one component | Co-located `ComponentName.test.tsx` next to component |
+| Adding...                      | Location                                                                        |
+| ------------------------------ | ------------------------------------------------------------------------------- |
+| New prompt section UI          | `src/components/sections/<Name>Section.tsx` + register in `src/types/config.ts` |
+| New hook                       | `src/hooks/use<Name>.ts`                                                        |
+| Ollama or storage logic        | `src/services/`                                                                 |
+| Pure formatting/assembly logic | `src/utils/`                                                                    |
+| New type or interface          | `src/types/index.ts`                                                            |
+| New shadcn component           | `src/components/ui/` via CLI                                                    |
+| Smoke or integration test      | `tests/`                                                                        |
+| Unit test for one component    | Co-located `ComponentName.test.tsx` next to component                           |
 
 ## Config Files (Root)
 
-| File | Purpose |
-| ---- | ------- |
-| `package.json` | Dependencies and npm scripts |
-| `vite.config.ts` | Vite dev server (port 9000) and Vitest config |
-| `tsconfig*.json` | TypeScript project references |
-| `eslint.config.js` | ESLint flat config |
-| `tailwind.config.cjs` | Tailwind theme |
-| `components.json` | shadcn/ui configuration |
-| `firebase.json` | Firebase Hosting deploy config |
-| `CLAUDE.md` | Claude Code project guidance |
-| `AGENTS.md` | AI agent entry point |
+| File                  | Purpose                                       |
+| --------------------- | --------------------------------------------- |
+| `package.json`        | Dependencies and npm scripts                  |
+| `vite.config.ts`      | Vite dev server (port 9000) and Vitest config |
+| `tsconfig*.json`      | TypeScript project references                 |
+| `eslint.config.js`    | ESLint flat config                            |
+| `tailwind.config.cjs` | Tailwind theme                                |
+| `components.json`     | shadcn/ui configuration                       |
+| `firebase.json`       | Firebase Hosting deploy config                |
+| `CLAUDE.md`           | Claude Code project guidance                  |
+| `AGENTS.md`           | AI agent entry point                          |

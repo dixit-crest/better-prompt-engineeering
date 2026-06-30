@@ -56,14 +56,14 @@ Configured in [`components.json`](../components.json):
 
 ## File Naming
 
-| Kind | Convention | Example |
-| ---- | ---------- | ------- |
-| Components | PascalCase | `MainPromptSection.tsx` |
-| Hooks | camelCase with `use` prefix | `usePromptState.ts` |
-| Services | camelCase | `ollamaService.ts` |
-| Utils | camelCase | `assemblePrompt.ts` |
-| Types | camelCase file, PascalCase exports | `index.ts` → `FullPrompt` |
-| Tests | `*.test.ts` / `*.test.tsx` | `assemblePrompt.test.ts` |
+| Kind       | Convention                         | Example                   |
+| ---------- | ---------------------------------- | ------------------------- |
+| Components | PascalCase                         | `MainPromptSection.tsx`   |
+| Hooks      | camelCase with `use` prefix        | `usePromptState.ts`       |
+| Services   | camelCase                          | `ollamaService.ts`        |
+| Utils      | camelCase                          | `assemblePrompt.ts`       |
+| Types      | camelCase file, PascalCase exports | `index.ts` → `FullPrompt` |
+| Tests      | `*.test.ts` / `*.test.tsx`         | `assemblePrompt.test.ts`  |
 
 ## Component Organization
 

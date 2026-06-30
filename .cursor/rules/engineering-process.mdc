@@ -19,6 +19,83 @@ Before making any code changes, read [AGENTS.md](../../AGENTS.md).
 | Folder structure | [docs/FOLDER_STRUCTURE.md](../../docs/FOLDER_STRUCTURE.md) |
 | Code review | [docs/REVIEW_CHECKLIST.md](../../docs/REVIEW_CHECKLIST.md) |
 
+## Agent Workflow (Ticket → Done)
+
+Follow this sequence unless the user gives narrower instructions.
+
+### 1. Start work on a ticket
+
+1. **Read the Jira ticket** — use Atlassian MCP (`getJiraIssue`) for summary, description, acceptance criteria, and links.
+2. **Move ticket to In Progress** — if status is **To Do** (or any pre-work status), transition it via `getTransitionsForJiraIssue` + `transitionJiraIssue`. Skip if already **In Progress** or later.
+3. **Create a Git branch** per [docs/BRANCHING.md](../../docs/BRANCHING.md) (`<type>/<JIRA-KEY>-<kebab-slug>` from `main`).
+4. **Read linked documentation** — [AGENTS.md](../../AGENTS.md), task-relevant `docs/`, [ARCHITECTURE.md](../../ARCHITECTURE.md), and [`.agents/rules/react.md`](../../.agents/rules/react.md) when touching UI.
+5. **Find similar implementations** in the codebase before writing new code.
+6. **Produce an implementation plan** and **wait for user approval** before coding (unless the user explicitly says to proceed without a plan).
+
+### 2. Implement
+
+- Work incrementally; keep the branch scoped to one ticket.
+- Re-read acceptance criteria before marking work complete.
+- Preserve application constraints (local Ollama, toggleable sections, user wording in assembly).
+
+### 3. Quality gates (before every commit)
+
+Run in order on **changed files**; fix failures before committing:
+
+```bash
+npx prettier --write <changed-files>   # or npm run format for a full-project pass
+npm run lint                           # must pass; report all errors to the user
+npm test
+npm run build
+```
+
+`./scripts/verify-local.sh` runs lint, test, and build — use it as the pre-PR gate. Add `npm run format:check` to the gate after a one-time `npm run format` baseline pass.
+
+If ESLint reports errors, surface them clearly and fix or explain before committing.
+
+### 4. Commit
+
+- Follow [docs/COMMITS.md](../../docs/COMMITS.md) (Conventional Commits + `Refs: <JIRA-KEY>` footer).
+- **Re-confirm Jira In Progress** — after a successful commit, ensure the ticket referenced in the branch name or commit footer is **In Progress** (transition from **To Do** if needed).
+- Only create commits when the user asks — do not commit proactively.
+
+### 5. Self-review
+
+Before opening a PR, perform an AI self-review against [docs/REVIEW_CHECKLIST.md](../../docs/REVIEW_CHECKLIST.md) and [docs/DEFINITION_OF_DONE.md](../../docs/DEFINITION_OF_DONE.md). Fix issues found.
+
+### 6. User says the ticket is done
+
+When the user indicates work on a ticket is complete:
+
+1. Run `./scripts/verify-local.sh` (or equivalent lint + test + build).
+2. **Push the branch** (only when the user asks or as part of this done flow).
+3. **Open a PR to `main`** via `gh pr create` — complete [.github/pull_request_template.md](../../.github/pull_request_template.md) (Jira link, summary, test plan, DoD checklist).
+4. **Update Jira:**
+   - Add a comment with the PR URL (`addCommentToJiraIssue`).
+   - Transition the ticket to **In Review** (`getTransitionsForJiraIssue` + `transitionJiraIssue`).
+
+### 7. After human approval (merge → deploy → close)
+
+Only when the user's policy allows and they request it:
+
+1. Merge the PR to `main` (human reviewer approval required per DoD).
+2. Monitor CI / Firebase deploy on merge.
+3. Transition Jira to **Done** with a comment linking the merged PR.
+4. Generate release notes when requested.
+
+## Jira Status Rules
+
+| Trigger | Jira action |
+| ------- | ----------- |
+| User starts work on a ticket | **To Do** → **In Progress** |
+| Commit on a branch tied to a ticket | Ensure that ticket is **In Progress** |
+| User says ticket is done | Comment PR link → **In Review** |
+| PR merged and deploy verified | **Done** (with PR link in comment) |
+
+**Resolving the ticket key:** branch name (`feature/PE-42-slug`), commit `Refs:` footer, user message, or Jira URL.
+
+**Atlassian MCP tools:** `getJiraIssue`, `getTransitionsForJiraIssue`, `transitionJiraIssue`, `addCommentToJiraIssue`.
+
 ## Pre-PR Gate
 
 ```bash
