@@ -38,7 +38,7 @@ export const SpecStructureSection = ({ structure, onChange }: SpecStructureProps
               onBlur={() => setFocusedField(null)}
               placeholder={HINT_DATA.preconditions.placeholder}
               rows={3}
-              className="text-xs resize-none focus-visible:ring-violet-500/30"
+              className="text-xs resize-none focus-visible:ring-ring/30"
             />
             <TypewriterHint 
               description={HINT_DATA.preconditions.description}
@@ -55,7 +55,7 @@ export const SpecStructureSection = ({ structure, onChange }: SpecStructureProps
               onBlur={() => setFocusedField(null)}
               placeholder={HINT_DATA.inputs.placeholder}
               rows={3}
-              className="text-xs resize-none focus-visible:ring-violet-500/30"
+              className="text-xs resize-none focus-visible:ring-ring/30"
             />
             <TypewriterHint 
               description={HINT_DATA.inputs.description}
@@ -72,7 +72,7 @@ export const SpecStructureSection = ({ structure, onChange }: SpecStructureProps
               onBlur={() => setFocusedField(null)}
               placeholder={HINT_DATA.actions.placeholder}
               rows={3}
-              className="text-xs resize-none focus-visible:ring-violet-500/30"
+              className="text-xs resize-none focus-visible:ring-ring/30"
             />
             <TypewriterHint 
               description={HINT_DATA.actions.description}
@@ -89,7 +89,7 @@ export const SpecStructureSection = ({ structure, onChange }: SpecStructureProps
               onBlur={() => setFocusedField(null)}
               placeholder={HINT_DATA.outputs.placeholder}
               rows={3}
-              className="text-xs resize-none focus-visible:ring-violet-500/30"
+              className="text-xs resize-none focus-visible:ring-ring/30"
             />
             <TypewriterHint 
               description={HINT_DATA.outputs.description}
@@ -106,7 +106,7 @@ export const SpecStructureSection = ({ structure, onChange }: SpecStructureProps
               onBlur={() => setFocusedField(null)}
               placeholder={HINT_DATA.postconditions.placeholder}
               rows={3}
-              className="text-xs resize-none focus-visible:ring-violet-500/30"
+              className="text-xs resize-none focus-visible:ring-ring/30"
             />
             <TypewriterHint 
               description={HINT_DATA.postconditions.description}

@@ -54,7 +54,7 @@ export const OllamaAutoFillSection = ({
           <div className="flex items-center gap-2">
             <span className="text-sm font-medium">Ollama Status:</span>
             {isConnected ? (
-              <Badge variant="secondary" className="bg-emerald-500/10 text-emerald-600 border-emerald-500/20">
+              <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
                 Connected
               </Badge>
             ) : (

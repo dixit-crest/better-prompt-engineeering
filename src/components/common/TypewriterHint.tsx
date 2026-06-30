@@ -75,10 +75,10 @@ export const TypewriterHint = ({
             : "opacity-0 -translate-y-2 pointer-events-none h-0 p-0 border-none overflow-hidden",
         )}
       >
-        <span className="shrink-0 font-bold text-violet-500">EG:</span>
+        <span className="shrink-0 font-bold text-primary">EG:</span>
         <div className="relative inline-block">
           <span className="italic leading-relaxed">"{displayText}"</span>
-          <span className="inline-block w-[2px] h-[14px] bg-violet-500 ml-0.5 align-middle animate-pulse" />
+          <span className="inline-block w-[2px] h-[14px] bg-primary ml-0.5 align-middle animate-pulse" />
         </div>
       </div>
     </div>

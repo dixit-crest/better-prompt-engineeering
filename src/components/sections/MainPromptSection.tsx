@@ -41,7 +41,7 @@ export const MainPromptSection = ({ prompt, onChange }: MainPromptProps) => {
           onChange={handleChange}
           {...bindField}
           rows={6}
-          className="font-mono text-base resize-none focus-visible:ring-violet-500/30"
+          className="font-mono text-base resize-none focus-visible:ring-ring/30"
         />
         <TypewriterHint 
           description={hint.description}
