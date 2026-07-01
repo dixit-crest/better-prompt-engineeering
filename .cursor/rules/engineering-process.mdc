@@ -63,16 +63,38 @@ If ESLint reports errors, surface them clearly and fix or explain before committ
 
 Before opening a PR, perform an AI self-review against [docs/REVIEW_CHECKLIST.md](../../docs/REVIEW_CHECKLIST.md) and [docs/DEFINITION_OF_DONE.md](../../docs/DEFINITION_OF_DONE.md). Fix issues found.
 
-### 6. User says the ticket is done
+### 6. Open PR and update Jira
 
-When the user indicates work on a ticket is complete:
+Whenever a PR is opened to `main` (including when the user says a ticket is done):
 
 1. Run `./scripts/verify-local.sh` (or equivalent lint + test + build).
-2. **Push the branch** (only when the user asks or as part of this done flow).
-3. **Open a PR to `main`** via `gh pr create` — complete [.github/pull_request_template.md](../../.github/pull_request_template.md) (Jira link, summary, test plan, DoD checklist).
-4. **Update Jira:**
-   - Add a comment with the PR URL (`addCommentToJiraIssue`).
-   - Transition the ticket to **In Review** (`getTransitionsForJiraIssue` + `transitionJiraIssue`).
+2. Run `./scripts/verify-gh-auth.sh` — **do not** assume `git push` success means `gh` is authenticated.
+3. **Push the branch** (only when the user asks or as part of this PR flow).
+4. **Open a PR to `main`** via `gh pr create` — complete [.github/pull_request_template.md](../../.github/pull_request_template.md) (Jira link, summary, test plan, DoD checklist).
+5. **Immediately update Jira** (required on every PR — do not skip):
+   - Resolve the ticket key from the branch name, commit `Refs:` footer, PR body, or user message.
+   - Add a comment with the PR URL via `addCommentToJiraIssue` (include PR title and link).
+   - Transition the ticket to **In Review** via `getTransitionsForJiraIssue` + `transitionJiraIssue`.
+   - If the PR was opened manually (no `gh`), still comment the URL and move to **In Review**.
+
+Do not mark PR work complete until both the GitHub PR exists **and** Jira is in **In Review** with the PR link commented.
+
+### GitHub CLI for agents
+
+`git push` and `gh` use **different** credentials. Agent PR creation requires `gh auth status` to succeed in the agent shell.
+
+| Check | Command |
+| ----- | ------- |
+| Git auth (push) | `git push --dry-run` |
+| GitHub CLI auth (PRs) | `./scripts/verify-gh-auth.sh` |
+
+**One-time setup:** [docs/GITHUB_AGENT_SETUP.md](../../docs/GITHUB_AGENT_SETUP.md)
+
+- Run `gh auth login` in the Cursor integrated terminal, **or**
+- Set `GH_TOKEN` (user env var or `terminal.integrated.env.windows` in Cursor settings)
+- Ensure `.cursor/sandbox.json` network allowlist is active (Settings → Agents → Auto-Run Network Access)
+
+If `gh pr create` fails with "not logged into any GitHub hosts", report the failure and give the user the PR creation URL from `git push` output — do not claim the PR was opened.
 
 ### 7. After human approval (merge → deploy → close)
 
@@ -89,7 +111,7 @@ Only when the user's policy allows and they request it:
 | ------- | ----------- |
 | User starts work on a ticket | **To Do** → **In Progress** |
 | Commit on a branch tied to a ticket | Ensure that ticket is **In Progress** |
-| User says ticket is done | Comment PR link → **In Review** |
+| PR opened to `main` | Comment PR link → **In Review** (required every time) |
 | PR merged and deploy verified | **Done** (with PR link in comment) |
 
 **Resolving the ticket key:** branch name (`feature/PE-42-slug`), commit `Refs:` footer, user message, or Jira URL.
