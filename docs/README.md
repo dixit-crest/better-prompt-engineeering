@@ -11,6 +11,7 @@ Authoritative standards for the Prompt Checklist Builder project. AI agents and 
 | [TESTING.md](./TESTING.md)                       | Test runner, locations, and PR requirements         |
 | [DEFINITION_OF_DONE.md](./DEFINITION_OF_DONE.md) | Completion checklist for every ticket               |
 | [REVIEW_CHECKLIST.md](./REVIEW_CHECKLIST.md)     | Code review checklist for reviewers                 |
+| [GITHUB_AGENT_SETUP.md](./GITHUB_AGENT_SETUP.md) | GitHub CLI auth for Cursor agent PR creation        |
 
 ## Related Root Docs
 
