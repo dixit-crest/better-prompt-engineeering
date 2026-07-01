@@ -396,7 +396,7 @@ function App() {
               {/* Preview Side */}
               <aside className="hidden xl:block w-[450px] bg-muted/30 h-full">
                 <div className="h-full p-6">
-                  <FinalPromptView prompt={prompt} onCopy={() => {}} />
+                  <FinalPromptView prompt={prompt} onCopy={() => { }} />
                 </div>
               </aside>
             </main>
